@@ -24,10 +24,12 @@
       pkgs = import nixpkgs { inherit system; };
       # specify the base version of python you with to use
       # and prepare mach-nix for usage
-      mach = import mach-nix { inherit pkgs "python39"; };
+      python = "python39";
+      mach = import mach-nix { inherit pkgs python; };
+
       
       # create a custom python environment
-      myPythonb = (mach.mkPython {
+      myPython = (mach.mkPython {
         requirements = ''
           numpy
           gkeepapi
@@ -38,7 +40,7 @@
         nativeBuildInputs = [
           # Now you can use your custom python environemt!
           # This should also work for `buildInputs` and so on!
-          pythonEnviroment
+          myPython
         ];
       };
     }
