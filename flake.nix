@@ -43,6 +43,13 @@
           myPython
         ];
       };
+      # The following can be removed in your code. The code just
+      # makes nix able to use this repo as a template using
+      # nix flake new newRepoName -t github:Quoteme/mach-nix-template
+      defaultTemplate = {
+        path = ./.;
+        description = "A simple python template using mach-nix";
+      };
     }
     );
 }
