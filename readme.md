@@ -2,10 +2,16 @@
 
 ## How do I use this?
 
-This `flake.nix` contains all the information on how to create a simple
+This `python/flake.nix` contains all the information on how to create a simple
 python environment in nix using [mach-nix]( https://github.com/DavHau/mach-nix )
 and nix flakes. Simply copy the code chunks below the comments from
-this `flake.nix` into your `flake.nix`:
+this `python/flake.nix` into your `flake.nix`:
+
+Also try creating a new python project using this as a template:
+
+```
+nix flake new yourNewPythonProjectName -t github:Quoteme/mach-nix-template/3e941e598b7438abd5f22c795c378ce215430bff
+```
 
 ## Why does this exist?
 
