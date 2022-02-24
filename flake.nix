@@ -3,7 +3,7 @@
   Please look inside the ./python folder. This file is only here, so
   the template option of `nix flake new` works!
   '';
-  outputs = {
+  outputs = {self}: {
     templates = {
       python = {
         path = ./.;
