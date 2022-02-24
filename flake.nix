@@ -6,7 +6,7 @@
   outputs = {self}: {
     templates = {
       python = {
-        path = ./.;
+        path = ./python;
         description = "A simple python template using mach-nix";
       };
     };
