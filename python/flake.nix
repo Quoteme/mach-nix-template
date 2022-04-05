@@ -8,7 +8,9 @@
     # This section will allow us to create a python environment
     # with specific predefined python packages from PyPi
     pypi-deps-db = {
-      url = "github:DavHau/mach-nix/3.3.0";
+      url = "github:DavHau/pypi-deps-db";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.mach-nix.follows = "mach-nix";
     };
     mach-nix = {
       url = "github:DavHau/mach-nix/3.3.0";
@@ -22,19 +24,20 @@
   flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = import nixpkgs { inherit system; };
-      # specify the base version of python you with to use
-      # and prepare mach-nix for usage
-      python = "python39";
-      mach = import mach-nix { inherit pkgs python; };
 
+      # prepare mach-nix for usage
+      mach = mach-nix.lib.${system};
       
       # create a custom python environment
-      myPython = (mach.mkPython {
+      myPython = mach.mkPython {
+        # specify the base version of python you with to use
+        python = "python39";
+
         requirements = ''
           numpy
           gkeepapi
         '';
-      });
+      };
     in {
       devShell = pkgs.mkShell {
         nativeBuildInputs = [
@@ -44,5 +47,5 @@
         ];
       };
     }
-    );
+  );
 }
