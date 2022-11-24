@@ -32,6 +32,9 @@
 
         requirements = ''
           numpy
+          Sphinx
+          sphinx-rtd-theme
+          sphinx-autodoc-annotation
         '';
       };
     in {
