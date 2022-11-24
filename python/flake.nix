@@ -25,11 +25,8 @@
     let
       pkgs = import nixpkgs { inherit system; };
 
-      # prepare mach-nix for usage
-      mach = mach-nix.lib.${system};
-      
       # create a custom python environment
-      myPython = mach.mkPython {
+      myPython = mach-nix.lib.${system}.mkPython {
         # specify the base version of python you with to use
         python = "python39";
 
