@@ -28,7 +28,7 @@
       # create a custom python environment
       myPython = mach-nix.lib.${system}.mkPython {
         # specify the base version of python you with to use
-        python = "python39";
+        python = "python310";
 
         requirements = ''
           numpy
