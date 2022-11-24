@@ -32,7 +32,6 @@
 
         requirements = ''
           numpy
-          gkeepapi
         '';
       };
     in {
