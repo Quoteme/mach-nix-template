@@ -10,6 +10,24 @@ nix flake new yourNewPythonProjectName -t github:Quoteme/mach-nix-template/
 
 __Node__: Exchange _yourNewPythonProjectName_ with the name of your project.
 
+When you enter the folder this command creates, you can run `nix develop` to enter a development environment with python.
+
+### Adding python packages
+
+Enter the directory which the above command created. Inside of it there is a `flake.nix` file. Search for the string `requirements` and place all the Python dependencies you would like to have inside it. Make sure your package exists on PyPI. The string needs to be the name which your package is published as on PyPi.
+
+Example:
+
+```
+requirements = ''
+  numpy
+  Sphinx
+  sphinx-rtd-theme
+  sphinx-autodoc-annotation
+'';
+```
+See for example [sphinx-autodoc-annotation](https://pypi.org/project/sphinx-autodoc-annotation/) on PiPy.
+
 ## How do I use this? (hard way)
 
 The file `python/flake.nix` contains all the information on how to create a simple
